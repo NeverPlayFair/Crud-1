@@ -2,7 +2,8 @@ import React from 'react';
 import Worker from './Worker';
 
 const ListWorker = (props) => {
-
+// mogłem zepsuć coś w tej metodzie
+    
     const Workers = props.worker.map(worker => <Worker key={Worker.id} worker={worker} />)
 
     return (
