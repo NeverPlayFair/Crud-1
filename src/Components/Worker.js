@@ -3,6 +3,8 @@ import React from 'react';
 
 const Worker = (props) => {
 
+    // albo zepsułem wywołanie
+    
     const { text } = props.worker;
 
     return (
