@@ -17,7 +17,7 @@ class App extends Component {
 
       },
       {
-        id: 2,
+        id: 1,
         Name: "Paweł",
         Surname: "Gawron",
         BirthDate: "12.02.2022",
@@ -26,7 +26,7 @@ class App extends Component {
 
       },
       {
-        id: 3,
+        id: 2,
         Name: "Nada",
         Surname: "Martins",
         BirthDate: "14.03.2022",
@@ -35,7 +35,7 @@ class App extends Component {
 
       },
       {
-        id: 4,
+        id: 3,
         Name: "Ellena",
         Surname: "Cobb",
         BirthDate: "20.04.2022",
@@ -46,6 +46,15 @@ class App extends Component {
     ]
   }
 
+  deleteTask = (id) => {
+    console.log("delete" + id);
+  }
+
+  changeTaskStatus = () => {
+    console.log("change");
+  }
+
+
   render() {
 
 
@@ -54,7 +63,7 @@ class App extends Component {
 
         IT group Workers
         <AddWorker />
-        <ListWorker worker={this.state.worker} />
+        <ListWorker worker={this.state.worker} delete={this.deleteTask} change={this.changeTaskStatus} />
 
 
       </div>

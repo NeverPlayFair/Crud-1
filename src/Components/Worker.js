@@ -3,17 +3,19 @@ import React from 'react';
 
 const Worker = (props) => {
 
-    // albo zepsułem wywołanie
-    
-    const { text } = props.worker;
-
+    const { Name, Surname, id } = props.worker;
+    // console.log(worker, props);
     return (
-        <div>
+        <div key={props.key}>
+
             <p>
-                <strong>{text}</strong>
+                <span>{Name}</span> <span>{Surname}</span>
+                <button onClick={() => props.delete(id)}>X</button>
             </p>
         </div>
     );
 }
 
+
 export default Worker;
+
