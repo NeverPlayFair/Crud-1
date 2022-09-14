@@ -4,7 +4,7 @@ import './App.css';
 import ListWorker from './ListWorker';
 
 class App extends Component {
-
+  counter = 4;
   state = {
     worker: [
       {
@@ -13,7 +13,9 @@ class App extends Component {
         Surname: "Test",
         BirthDate: "10.01.2022",
         Position: "CTO",
-        Location: "USA"
+        Location: "USA",
+        active: true
+
 
       },
       {
@@ -22,7 +24,9 @@ class App extends Component {
         Surname: "Gawron",
         BirthDate: "12.02.2022",
         Position: "Programmer",
-        Location: "Poland"
+        Location: "Poland",
+        active: true
+
 
       },
       {
@@ -31,7 +35,9 @@ class App extends Component {
         Surname: "Martins",
         BirthDate: "14.03.2022",
         Position: "HR",
-        Location: "Italy"
+        Location: "Italy",
+        active: true
+
 
       },
       {
@@ -40,20 +46,60 @@ class App extends Component {
         Surname: "Cobb",
         BirthDate: "20.04.2022",
         Position: "HELPER",
-        Location: "Portugal"
+        Location: "Portugal",
+        active: true
 
       },
     ]
   }
 
+
+
   deleteTask = (id) => {
-    console.log("delete" + id);
+    console.log("delete id " + id);
+    let worker = [...this.state.worker];
+    worker = worker.filter(worker => worker.id !== id)
+
+    this.setState({
+      worker
+    })
+
   }
 
-  changeTaskStatus = () => {
-    console.log("change");
+
+  EditWorker = (Name, Surname) => {
+    console.log("edit element on id:" + Name + Surname);
+    const edit = [...this.state.worker];
+    const numberTwo = edit.findIndex(worker => worker.Name && worker.Surname === Name && Surname);
+    edit.forEach(numberTwo, 1);
+    console.log(edit);
+
+    this.setState({
+      Name: Name,
+      Surname: Surname
+    })
   }
 
+  AddWorker = (Name, Surname) => {
+    // console.log("Added worker");
+    const workers = {
+      id: this.counter,
+      Name: Name,
+      Surname: Surname,
+      BirthDate: "10.01.2022",
+      Position: "CTO",
+      Location: "USA",
+      active: true
+    }
+    this.counter++
+    console.log(workers, this.counter)
+
+    this.setState(prevState => ({
+      worker: [...prevState.worker, workers]
+    }))
+
+    return true
+  }
 
   render() {
 
@@ -62,6 +108,8 @@ class App extends Component {
       <div className="App">
 
         IT group Workers
+        {/* <EditWorker edit={this.EditWorker} /> */}
+        <AddWorker add={this.AddWorker} />
         <AddWorker />
         <ListWorker worker={this.state.worker} delete={this.deleteTask} change={this.changeTaskStatus} />
 

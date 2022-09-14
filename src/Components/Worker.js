@@ -11,6 +11,7 @@ const Worker = (props) => {
             <p>
                 <span>{Name}</span> <span>{Surname}</span>
                 <button onClick={() => props.delete(id)}>X</button>
+                <button onClick={() => props.edit(Name, Surname)}>Edit</button>
             </p>
         </div>
     );
