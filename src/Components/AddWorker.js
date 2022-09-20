@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AddWorker.css';
 
 
 class AddWorker extends Component {
@@ -23,7 +24,7 @@ class AddWorker extends Component {
     render() {
         return (
             <div
-                className="1st">
+                className="add">
                 <input type="text" placeholder="add worker" value={this.state.text} />
                 <button>Add</button>
 

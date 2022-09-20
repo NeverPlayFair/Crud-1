@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AddWorker from './AddWorker';
-import './App.css';
+
 import ListWorker from './ListWorker';
 
 class App extends Component {
@@ -109,7 +109,7 @@ class App extends Component {
 
         IT group Workers
         {/* <EditWorker edit={this.EditWorker} /> */}
-        <AddWorker add={this.AddWorker} />
+        {/* <AddWorker add={this.AddWorker} /> */}
         <AddWorker />
         <ListWorker worker={this.state.worker} delete={this.deleteTask} change={this.changeTaskStatus} />
 
