@@ -3,15 +3,15 @@ import React from 'react';
 
 const Worker = (props) => {
 
-    const { Name, Surname, id } = props.worker;
+    const { name, surname, id } = props.worker;
     // console.log(worker, props);
     return (
         <div key={props.key}>
 
             <p>
-                <span>{Name}</span> <span>{Surname}</span>
+                <span>{name}</span> <span>{surname}</span>
                 <button onClick={() => props.delete(id)}>X</button>
-                <button onClick={() => props.edit(Name, Surname)}>Edit</button>
+                <button onClick={() => props.edit(name, surname)}>Edit</button>
             </p>
         </div>
     );

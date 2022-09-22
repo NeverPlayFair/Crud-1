@@ -3,50 +3,52 @@ import AddWorker from './AddWorker';
 
 import ListWorker from './ListWorker';
 
+
 class App extends Component {
-  counter = 4;
+
   state = {
+    counter: 4,
     worker: [
       {
         id: 0,
-        Name: "John",
-        Surname: "Test",
-        BirthDate: "10.01.2022",
-        Position: "CTO",
-        Location: "USA",
+        name: "John",
+        surname: "Test",
+        birthdate: "10.01.2022",
+        position: "CTO",
+        location: "USA",
         active: true
 
 
       },
       {
         id: 1,
-        Name: "Paweł",
-        Surname: "Gawron",
-        BirthDate: "12.02.2022",
-        Position: "Programmer",
-        Location: "Poland",
+        name: "Paweł",
+        surname: "Gawron",
+        birthdate: "12.02.2022",
+        position: "Programmer",
+        location: "Poland",
         active: true
 
 
       },
       {
         id: 2,
-        Name: "Nada",
-        Surname: "Martins",
-        BirthDate: "14.03.2022",
-        Position: "HR",
-        Location: "Italy",
+        name: "Nada",
+        surname: "Martins",
+        birthdate: "14.03.2022",
+        position: "HR",
+        location: "Italy",
         active: true
 
 
       },
       {
         id: 3,
-        Name: "Ellena",
-        Surname: "Cobb",
-        BirthDate: "20.04.2022",
-        Position: "HELPER",
-        Location: "Portugal",
+        name: "Ellena",
+        surname: "Cobb",
+        birthdate: "20.04.2022",
+        position: "HELPER",
+        location: "Portugal",
         active: true
 
       },
@@ -67,35 +69,41 @@ class App extends Component {
   }
 
 
-  EditWorker = (Name, Surname) => {
-    console.log("edit element on id:" + Name + Surname);
+  editWorker = (name, surname) => {
+    console.log("edit element on id:" + name + surname);
     const edit = [...this.state.worker];
-    const numberTwo = edit.findIndex(worker => worker.Name && worker.Surname === Name && Surname);
+    const numberTwo = edit.findIndex(worker => worker.name && worker.surname === name && surname);
     edit.forEach(numberTwo, 1);
     console.log(edit);
 
     this.setState({
-      Name: Name,
-      Surname: Surname
+      Name: name,
+      Surname: surname
     })
   }
 
-  AddWorker = (Name, Surname) => {
+  addWorker = (name, surname) => {
     // console.log("Added worker");
     const workers = {
       id: this.counter,
-      Name: Name,
-      Surname: Surname,
-      BirthDate: "10.01.2022",
-      Position: "CTO",
-      Location: "USA",
+      name: name,
+      surname: surname,
+      birthdate: "10.01.2022",
+      position: "CTO",
+      location: "USA",
       active: true
     }
-    this.counter++
+
+    this.setState({
+      counter: this.state.counter + 1
+    })
     console.log(workers, this.counter)
 
+    const currentWorkers = this.state.worker
+    currentWorkers.push(workers)
+
     this.setState(prevState => ({
-      worker: [...prevState.worker, workers]
+      worker: currentWorkers
     }))
 
     return true
@@ -108,9 +116,10 @@ class App extends Component {
       <div className="App">
 
         IT group Workers
-        {/* <EditWorker edit={this.EditWorker} /> */}
+        <hr />
+        {/* <editWorker edit={this.editWorker} /> */}
         {/* <AddWorker add={this.AddWorker} /> */}
-        <AddWorker />
+        <AddWorker add={this.addWorker} />
         <ListWorker worker={this.state.worker} delete={this.deleteTask} change={this.changeTaskStatus} />
 
 

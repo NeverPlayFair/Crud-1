@@ -4,18 +4,18 @@ import './AddWorker.css';
 
 class AddWorker extends Component {
     state = {
-        Name: '',
-        Surname: ""
+        name: '',
+        surname: ""
     }
 
     handleClick = () => {
         console.log("add");
-        const { Name, Surname } = this.state
-        const add = this.props.add(Name, Surname)
+        const { name, surname } = this.state;
+        const add = this.props.add(name, surname)
         if (add) {
             this.setState({
-                Name: "",
-                Surname: ""
+                name: "",
+                surname: ""
             })
         }
     }
@@ -23,14 +23,18 @@ class AddWorker extends Component {
 
     render() {
         return (
-            <div
-                className="add">
-                <input type="text" placeholder="add worker" value={this.state.text} />
+
+
+            <form className="add" onSubmit={this.handleClick}>
+                <label htmlFor="worker">Add worker:
+                </label>
+                <input type="text" placeholder="Name and Surname" id="worker"
+                    defaultValue={this.state.name + this.state.surname} />
                 <button>Add</button>
-
                 <hr />
+            </form>
 
-            </div>
+
         );
     }
 }
