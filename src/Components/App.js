@@ -73,29 +73,29 @@ class App extends Component {
 
   }
 
-  changeEditMode = (id) => {
-    const changedWorker = this.state.worker.filter(worker => worker.id !== id);
+  //   changeEditMode = (id) => {
+  //     const changedWorker = this.state.worker.filter(worker => worker.id !== id);
 
-    // const selectedWorker = this.state.worker.find(worker => worker.id === id);
+  //     // const selectedWorker = this.state.worker.find(worker => worker.id === id);
 
-    this.setState({
-      name: changedWorker,
-      surname: changedWorker
-    })
+  //     this.setState({
+  //         name: changedWorker,
+  //         surname: changedWorker
+  //     })
 
-    console.log(changedWorker)
-  }
+  //     console.log(changedWorker)
+  // }
 
   // // Tutaj próbowałem z użyciem dwóch zmiennych w setState, changedWorker i selectedWorker, ale zwracało mi błąd
 
-  //   this.setState({
+  //     this.setState({
   //     worker: changedWorker,
   //     name: selectedWorker.name,
   //     surname: selectedWorker.surname
-  //   })
+  // })
 
-  //   console.log(selectedWorker)
-  // }
+  // console.log(selectedWorker)
+  //   }
 
 
 
@@ -157,7 +157,7 @@ class App extends Component {
         {/* <editWorker edit={this.editWorker} /> */}
         {/* <AddWorker add={this.AddWorker} /> */}
         <AddWorker add={this.addWorker} />
-        <ListWorker worker={this.state.worker} delete={this.deleteTask} change={this.changeTaskStatus} />
+        <ListWorker worker={this.state.worker} delete={this.deleteTask} />
 
 
       </div>

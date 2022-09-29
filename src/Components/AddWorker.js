@@ -34,9 +34,23 @@ class AddWorker extends Component {
 
     }
 
+    changeEditMode = (id) => {
+        const changedWorker = this.state.worker.filter(worker => worker.id !== id);
+
+        const selectedWorker = this.state.worker.find(worker => worker.id === id);
+
+        this.setState({
+            worker: changedWorker,
+            name: selectedWorker.name,
+            surname: selectedWorker.name
+        })
+
+
+    }
 
 
     render() {
+        console.log(this.handleInputChange && this.changeEditMode)
         return (
 
 
@@ -44,7 +58,7 @@ class AddWorker extends Component {
                 <label htmlFor="worker">Add worker:
                 </label>
                 <input type="text" placeholder="Name and Surname" id="worker"
-                    defaultValue={this.state.name + this.state.surname} onChange={this.handleInputChange && this.changeEditMode}
+                    defaultValue={this.state.name + this.state.surname} onChange={() => { this.handleInputChange(); this.changeEditMode() }}
                 />
                 <button>Add</button>
                 <hr />
