@@ -15,7 +15,9 @@ const Worker = (props) => {
                 <span>{name}</span> <span>{surname}</span>
                 <button onClick={() => props.delete(id)}>X</button>
                 <button onClick={() => props.changeEditMode(name, surname)} >Edit</button>
-                {/* Próbowałem jeszcze takie zapisu:  <button onClick={e => props.changeEditMode(e)} > */}
+
+                {/* Próbowałem jeszcze takich zapisów:  <button onClick={e => props.changeEditMode(e)} > */}
+                {/* <button onClick={() => this.changeEditMode(name, surname)} >Edit</button> */}
             </p>
         </div>
     );
