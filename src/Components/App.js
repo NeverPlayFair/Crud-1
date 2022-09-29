@@ -4,7 +4,9 @@ import AddWorker from './AddWorker';
 import ListWorker from './ListWorker';
 
 
+
 class App extends Component {
+
 
   state = {
     counter: 4,
@@ -16,7 +18,8 @@ class App extends Component {
         birthdate: "10.01.2022",
         position: "CTO",
         location: "USA",
-        active: true
+        active: true,
+
 
 
       },
@@ -27,7 +30,8 @@ class App extends Component {
         birthdate: "12.02.2022",
         position: "Programmer",
         location: "Poland",
-        active: true
+        active: true,
+
 
 
       },
@@ -38,7 +42,7 @@ class App extends Component {
         birthdate: "14.03.2022",
         position: "HR",
         location: "Italy",
-        active: true
+        active: true,
 
 
       },
@@ -49,7 +53,8 @@ class App extends Component {
         birthdate: "20.04.2022",
         position: "HELPER",
         location: "Portugal",
-        active: true
+        active: true,
+
 
       },
     ]
@@ -68,19 +73,51 @@ class App extends Component {
 
   }
 
+  changeEditMode = (id) => {
+    const changedWorker = this.state.worker.filter(worker => worker.id !== id);
 
-  editWorker = (name, surname) => {
-    console.log("edit element on id:" + name + surname);
-    const edit = [...this.state.worker];
-    const numberTwo = edit.findIndex(worker => worker.name && worker.surname === name && surname);
-    edit.forEach(numberTwo, 1);
-    console.log(edit);
+    // const selectedWorker = this.state.worker.find(worker => worker.id === id);
 
     this.setState({
-      Name: name,
-      Surname: surname
+      name: changedWorker,
+      surname: changedWorker
     })
+
+    console.log(changedWorker)
   }
+
+  // // Tutaj próbowałem z użyciem dwóch zmiennych w setState, changedWorker i selectedWorker, ale zwracało mi błąd
+
+  //   this.setState({
+  //     worker: changedWorker,
+  //     name: selectedWorker.name,
+  //     surname: selectedWorker.surname
+  //   })
+
+  //   console.log(selectedWorker)
+  // }
+
+
+
+  // changeEditMode = () => {
+  //   this.setState({
+  //     isInEditMode: !this.state.isInEditMode
+  //   })
+  //   console.log("you should go to edit mode now!")
+  // }
+
+
+
+  // editWorker = (id, newName, newSurname) => {
+  //   const editedWorker = worker.map((worker) => {
+  //     if (id === worker.id) {
+  //       return { ...worker, name: newName, surname: newSurname }
+  //     }
+  //     return worker;
+  //   });
+  //   setWorker(editedWorker);
+  // }
+
 
   addWorker = (name, surname) => {
     // console.log("Added worker");
